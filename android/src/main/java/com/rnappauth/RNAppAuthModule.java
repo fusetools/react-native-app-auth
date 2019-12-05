@@ -745,6 +745,7 @@ public class RNAppAuthModule extends ReactContextBaseJavaModule implements Activ
 
         Uri authorizationEndpoint = Uri.parse(serviceConfiguration.getString("authorizationEndpoint"));
         Uri tokenEndpoint = Uri.parse(serviceConfiguration.getString("tokenEndpoint"));
+        Uri endSessionEndpoint = null;
         Uri registrationEndpoint = null;
         if (serviceConfiguration.hasKey("registrationEndpoint")) {
             registrationEndpoint = Uri.parse(serviceConfiguration.getString("registrationEndpoint"));
@@ -753,7 +754,8 @@ public class RNAppAuthModule extends ReactContextBaseJavaModule implements Activ
         return new AuthorizationServiceConfiguration(
                 authorizationEndpoint,
                 tokenEndpoint,
-                registrationEndpoint
+                endSessionEndpoint,
+                registrationEndpoint,
         );
     }
 
